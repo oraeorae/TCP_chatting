@@ -57,21 +57,14 @@ for(int i = 0 ; i < socketlist.size() ; i ++ ){
 	
 具体步骤：
 TCP服务端
-    1.创建套接字（socket）
-    2.绑定端口(bind)
-    3.开始监听：
-        例子：饭店拉客
-        当我们节假日外出吃饭的时候，经常受到各个店家热情的拉客，当我们被成功拉进馆子之后，在外拉客的店员就不会再管我们了，而是交由店内的店员为我们提供服务。在这个例子中，“拉客”的店员就相当于我们的“监听”端口
-        listen函数
-        int listen(int socket, int backlo
-        参数：sock套接字。
-        backlog是一个数字，表示所传链表的大小。具体含义是服务端预留了一小部分资源，这部分资源由一个链表队列位置，这个位置是为了给在排队的进程预留的。作用是为了提高效率，但存在一定的成本。
-   4.接收请求
-            接收请求就是上面例子中的，在店内为你提供服务的店员。
-            accept函数
-        	```int accept(int socket, struct sockaddr* address, socklen_t* address_len);```
-            参数： socket套接字。 address接收到的结构体， address_len结构体的大小。
-    5.提供服务（自定义）
+1.创建套接字（socket）
+2.绑定端口(bind)
+3.开始监听：
+4.接收请求
+accept函数
+```int accept(int socket, struct sockaddr* address, socklen_t* address_len);```
+参数： socket套接字。 address接收到的结构体， address_len结构体的大小。
+5.提供服务（自定义）
 
 客户端：
 1.创建套接字
@@ -94,7 +87,9 @@ https://blog.csdn.net/WindSunLike/article/details/106248368
 当我修改绑定的地址语句为 `QHostAddress::LocalHost` 之后，可以监听成功。
 
 （4）代码
+
 服务器端代码
+
 笔记：
 1、服务器除了使用到了QTcpSocket类，还需要用到QTcpSever类。即便如此，也只是比客户端复杂一点点，用到了6个步骤：
 
